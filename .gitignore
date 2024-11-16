@@ -39,3 +39,11 @@ out/
 ### Kotlin ###
 .kotlin
 .env
+
+# IntelliJ IDEA project files
+*.iml
+.idea/
+
+# Spring Boot application YAML
+application-*.yaml
+application-*.yml

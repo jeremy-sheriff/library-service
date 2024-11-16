@@ -22,13 +22,21 @@ import org.slf4j.LoggerFactory
 
 @RestController
 @RequestMapping("api/library/books")
-@CrossOrigin(origins = ["http://localhost:4200","https://muhohodev.com"])
+@CrossOrigin(origins = [
+    "http://localhost:4200",
+    "https://muhohodev.com"])
 @PreAuthorize("hasAnyAuthority('library_role')")
 class BooksController(
     private val bookService: BookService,
     private val usersClient: UsersClient
 ) {
     private val logger = LoggerFactory.getLogger(BooksController::class.java)
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping("admin")
+    fun getAdminData(): ResponseEntity<Map<String, String>> {
+        return successResponse("Admin success")
+    }
 
     @GetMapping("")
     fun books(
@@ -207,11 +215,11 @@ class BooksController(
     }
 
 
-
-
-
     @GetMapping("issues")
     fun issues():List<Any> {
         return bookService.getBooksAndStudents()
     }
+
+
+
 }

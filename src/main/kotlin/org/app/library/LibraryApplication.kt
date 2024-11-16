@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients
 
 @SpringBootApplication
 @EnableFeignClients
-@EnableSqs  // Enable SQS listener support
+//@EnableSqs  // Enable SQS listener support
 class LibraryApplication
 
 fun main(args: Array<String>) {

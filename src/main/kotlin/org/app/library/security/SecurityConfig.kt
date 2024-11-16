@@ -32,7 +32,14 @@ class SecurityConfig{
         http.csrf { it ->
             it.disable()
         }.authorizeHttpRequests { it ->
-            it.requestMatchers("/api/library/health").permitAll()
+
+            it.requestMatchers(
+                "/api/library/health",
+                "/actuator/health",
+                "/actuator/info",
+                "/actuator/metrics",
+                "/actuator/prometheus")
+                .permitAll()
 
             // Explicitly allow all OPTIONS requests to pass through (for CORS preflight)
             it.requestMatchers("/**").permitAll()
@@ -62,8 +69,8 @@ class SecurityConfig{
         config.addAllowedOrigin("https://muhohodev.com")
         config.addAllowedOrigin("https://api.muhohodev.com")
         config.addAllowedHeader("*")
-        config.addAllowedMethod("*")  // Allow all methods
-        config.maxAge = 3600L  // Cache preflight response for 1 hour
+        config.addAllowedMethod("*")
+        config.maxAge = 3600L
 
         val source = UrlBasedCorsConfigurationSource()
         source.registerCorsConfiguration("/**", config)

@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service
 @Service
 class SqsConsumerService {
 
-    @SqsListener("\${aws.sqs.queueUrl}")
-    fun receiveMessage(message: String) {
-        println("Received message: $message")
-    }
+//    @SqsListener("\${aws.sqs.queueUrl}")
+//    fun receiveMessage(message: String) {
+//        println("Received message: $message")
+//    }
 }

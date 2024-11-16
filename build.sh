@@ -57,9 +57,9 @@ echo "New version: $new_version"
 export LIBRARY_IMAGE="muhohoweb/library-image:$new_version"
 echo "LIBRARY_IMAGE set to: $LIBRARY_IMAGE"
 
-# Run your build commands
-./gradlew clean &&
-./gradlew build -x test &&
+## Run your build commands
+#./gradlew clean &&
+#./gradlew build -x test &&
 docker build --platform linux/amd64 -t muhohoweb/library-image:"$new_version" . &&
 docker push muhohoweb/library-image:"$new_version" &&
 

@@ -28,6 +28,7 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
+
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.3")
     runtimeOnly("org.postgresql:postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -45,6 +46,8 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("io.micrometer:micrometer-registry-prometheus")
 }
 dependencyManagement {
     imports {
@@ -61,4 +64,8 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.getByName<org.springframework.boot.gradle.tasks.run.BootRun>("bootRun") {
+    systemProperty("spring.profiles.active", "dev")
 }
