@@ -16,14 +16,14 @@ A simple Spring Boot application built with Kotlin and Gradle. This project demo
  ``` bash
     DOCKER_IMAGE_NAME=your_image_name
     STUDENTS_URL=http://students:8080/api
-    KEY_CLOAK_USERNAME=app-user
+    KEY_CLOAK_USERNAME=${KEY_CLOAK_USERNAME}
     KEY_CLOAK_CLIENT_ID=${KEY_CLOAK_CLIENT_ID}
     KEY_CLOAK_PASSWORD=${KC_DB_PASSWORD}
     KEY_CLOAK_ISSUER_URI=http://keycloak:8080/keycloak/auth/realms/school
     
     DB_PASSWORD=${DB_PASSWORD}
-    DB_USERNAME=postgres
-    DB_URL=jdbc:postgresql://postgres:5432/postgres?currentSchema=library
+    DB_USERNAME=${DB_USERNAME}
+    DB_URL=${DB_URL}
     
     CORS_ALLOWED_ORIGINS=http://localhost
     
