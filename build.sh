@@ -60,8 +60,8 @@ echo "LIBRARY_IMAGE set to: $LIBRARY_IMAGE"
 ## Run your build commands
 #./gradlew clean &&
 #./gradlew build -x test &&
-docker build --platform linux/amd64 -t muhohoweb/library-image:"$new_version" . &&
-docker push muhohoweb/library-image:"$new_version" &&
+#docker build --platform linux/amd64 -t muhohoweb/library-image:"$new_version" . &&
+#docker push muhohoweb/library-image:"$new_version" &&
 
 # Git add, commit, and push
 git add VERSION &&
